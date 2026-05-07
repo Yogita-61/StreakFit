@@ -1,5 +1,3 @@
-const apiRoot = import.meta.env.VITE_API_URL?.replace(/\/$/, '')
+console.log(import.meta.env.VITE_API_URL)
 
-export const API_URL = apiRoot
-  ? apiRoot.endsWith('/api') ? apiRoot : `${apiRoot}/api`
-  : ''
+export const API_URL = import.meta.env.VITE_API_URL

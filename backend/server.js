@@ -8,8 +8,22 @@ const app = express()
 const PORT = process.env.PORT || 5000
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/streakfit'
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173'
+const allowedOrigins = CLIENT_ORIGIN
+  .split(',')
+  .map(origin => origin.trim())
+  .filter(Boolean)
 
-app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }))
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true)
+      return
+    }
+
+    callback(new Error(`CORS blocked origin: ${origin}`))
+  },
+  credentials: true
+}))
 app.use(express.json())
 
 const userSchema = new mongoose.Schema(
