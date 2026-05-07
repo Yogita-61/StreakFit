@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # StreakFit - Full-Featured Fitness App
 
 A complete React + Vite fitness application with BMI calculator, personalized workout plans, progress tracking, and animated UI.
@@ -259,3 +260,6 @@ StreakFit Team
 ---
 
 **Start your fitness journey today! 💪🔥**
+=======
+# StreakFit
+>>>>>>> 017d1344886e6be2df3b5172316b9d7e00e03d6a
