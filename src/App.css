@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: #f5f7fb;
+    color: #18212f;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .app-card {
+    @apply rounded-3xl border border-white/70 bg-white/90 shadow-soft backdrop-blur transition dark:border-white/10 dark:bg-slate-900/90;
+  }
+
+  .control {
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 outline-none transition focus:border-fitness-orange focus:ring-4 focus:ring-orange-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-orange-500/20;
+  }
+
+  .segmented {
+    @apply rounded-2xl border border-slate-200 bg-slate-100 p-1 dark:border-slate-700 dark:bg-slate-950;
+  }
+
+  .segmented-button {
+    @apply rounded-xl px-3 py-2 text-xs font-black uppercase tracking-wide text-slate-500 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white;
+  }
+
+  .segmented-button-active {
+    @apply bg-white text-fitness-orange shadow-sm dark:bg-slate-800 dark:text-orange-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-2xl bg-fitness-orange px-5 text-sm font-black text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 text-sm font-black text-slate-700 transition hover:-translate-y-0.5 hover:border-fitness-orange hover:text-fitness-orange dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200;
+  }
+
+  .icon-button {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-sm font-black text-slate-700 transition hover:border-fitness-orange hover:text-fitness-orange dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200;
+  }
+
+  .nav-link {
+    @apply inline-flex min-h-10 items-center gap-2 rounded-xl px-4 text-sm font-black text-slate-500 transition hover:bg-white hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white;
+  }
+
+  .nav-link span {
+    @apply flex h-6 w-6 items-center justify-center rounded-lg bg-white text-[11px] text-fitness-orange shadow-sm dark:bg-slate-950;
+  }
+
+  .nav-link-active {
+    @apply bg-white text-slate-950 shadow-sm dark:bg-slate-800 dark:text-white;
+  }
+
+  .pill-button {
+    @apply rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-black text-slate-600 transition hover:-translate-y-0.5 hover:border-fitness-orange hover:text-fitness-orange dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300;
+  }
+
+  .pill-button-active {
+    @apply border-fitness-orange bg-orange-50 text-fitness-orange dark:bg-orange-500/10 dark:text-orange-200;
+  }
+
+  .metric-tile {
+    @apply rounded-3xl bg-slate-50 p-4 dark:bg-slate-950;
+  }
+
+  .metric-tile span {
+    @apply block text-2xl font-black tracking-tight text-slate-950 dark:text-white;
+  }
+
+  .metric-tile small {
+    @apply mt-1 block text-xs font-black uppercase tracking-wide text-slate-400;
+  }
+
+  .mini-stat {
+    @apply rounded-2xl bg-slate-50 p-3 dark:bg-slate-900;
+  }
+
+  .mini-stat strong {
+    @apply block text-sm font-black text-slate-950 dark:text-white;
+  }
+
+  .mini-stat span {
+    @apply mt-1 block text-[11px] font-black uppercase tracking-wide text-slate-400;
+  }
+
+  .toggle {
+    @apply flex h-8 w-14 items-center rounded-full bg-slate-200 p-1 transition dark:bg-slate-800;
+  }
+
+  .toggle span {
+    @apply h-6 w-6 rounded-full bg-white shadow-sm transition;
+  }
+
+  .toggle-active {
+    @apply bg-fitness-orange;
+  }
+
+  .toggle-active span {
+    @apply translate-x-6;
+  }
+
+  .achievement-card {
+    @apply rounded-3xl bg-slate-50 p-5 dark:bg-slate-950;
+  }
+
+  .achievement-card strong {
+    @apply block text-3xl font-black text-slate-950 dark:text-white;
+  }
+
+  .achievement-card span {
+    @apply mt-2 block text-xs font-black uppercase tracking-wide text-slate-400;
+  }
+
+  .exercise-image {
+    @apply overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-900;
+  }
+
+  .exercise-image img,
+  .exercise-image video {
+    @apply h-48 w-full object-cover;
+  }
+
+  .exercise-image.large img,
+  .exercise-image.large video {
+    @apply h-full min-h-80;
+  }
+
+  .exercise-image svg {
+    @apply h-48 w-full;
+  }
+
+  .exercise-image.large svg {
+    @apply h-full min-h-80;
+  }
+
+  .exercise-image-label {
+    font-size: 13px;
+    font-weight: 900;
+    fill: #64748b;
+  }
+
+  .exercise-person {
+    animation: personFloat 1.8s ease-in-out infinite;
+    transform-origin: center;
+  }
+}
+
+@keyframes personFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
